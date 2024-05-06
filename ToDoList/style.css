@@ -1,0 +1,124 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main{
+    background: linear-gradient(120deg, rgb(237, 180, 212), rgb(182, 119, 201));
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#app{
+    margin-top: 200px;
+    background: rgb(255, 255, 255);
+    height: fit-content;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+#create-todo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    background: whitesmoke;
+}
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    font-weight: 15px;
+    padding: 10px;
+    background: transparent;
+}
+
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: rgb(250, 200, 105);
+    padding: 10px;
+    border-radius: 20px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+#list-todo{
+    background: rgba(0, 0, 0, 0.05);
+    padding: 15px 10px;
+    border-radius: 20px;
+}
+
+li{
+    padding: 5px 0px;
+    user-select: none;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    font-size: 15px;
+}
+
+/*p simulating as a width limited li with semicorrelated span element*/
+p{
+    width: 100%;
+    padding: 0px 30px;
+}
+
+p::before{
+    content: '';
+    background-image: url(img/unchecked.png);
+    background-position: center;
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+}
+
+p:hover::before{
+    background-image: url(img/checked.png);
+    background-color: rgb(250, 200, 105);
+    border-radius: 50%;
+}
+
+p.checked{
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+p.checked::before{
+    content: '';
+    margin-right: 15px;
+    background-image: url(img/checked.png);
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(250, 200, 105);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+}
+
+span{
+    content: '';
+    background-image: url(img/delete.png);
+    background-position: center;
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+}
