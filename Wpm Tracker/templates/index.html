@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WPM Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div id="nav_container">
+        <p id="nav_title">WPM Tracker</p>
+        <p class="nav_text">type the text below as accurately and quickly as possible...</p>
+    </div>
+    <div id="main_container">
+        <div id="canvas">
+            <p class="typing_text">{{ predifined_text }}</p>
+        </div>
+        <div id="feed_container">
+            <p id="time">60s</p>
+            <p id="wpm_counter">WPM: 0</p>
+            <!-- trick for quick restart, not recommended -->
+            <a href="/"><i class='bx bx-reset'></i></a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
