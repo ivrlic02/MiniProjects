@@ -3,6 +3,7 @@ $(document).ready(function() {
     let currentWordIndex = 0
     let currentLetterIndex = 0
     let correctWords = []
+    let startedTyping = false // check if user started typing the word
     
     let countdownTime = 60
     let countdownInterval = null
@@ -20,6 +21,7 @@ $(document).ready(function() {
         // check for valid input
         if(event.key.length === 1 && event.key !== " ") {
             const expectedLetter = currentWord[currentLetterIndex]
+            startedTyping = true
 
             // correct letter
             if(event.key === expectedLetter) {
@@ -34,7 +36,7 @@ $(document).ready(function() {
             } else {
                 renderText(false) // incorrect letter
             }
-        } else if (event.key === " " && counter > 0) {
+        } else if (event.key === " " && startedTyping) {
             nextWord() // if space is pressed while in word skip to next one, ignore if not
         }
 
@@ -71,6 +73,7 @@ $(document).ready(function() {
     function nextWord() {
         currentWordIndex++
         currentLetterIndex = 0
+        startedTyping = false
 
         renderText(true)
     }
